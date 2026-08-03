@@ -1,0 +1,80 @@
+\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{mhchem}
+\usepackage{chemfig}
+\usepackage{caption}
+
+%dělení slov
+\usepackage{ragged2e}
+\let\raggedright=\RaggedRight
+%konec dělení slov
+
+\addtobeamertemplate{frametitle}{
+	\let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+	\let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+\setbeamercolor{section in toc}{fg=red}
+\setbeamertemplate{section in toc shaded}[default][100]
+
+\usepackage{fontspec}
+\usepackage{unicode-math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{czech}
+
+\def\uv#1{„#1“}
+
+\mode<presentation>{\usetheme{default}}
+\usecolortheme{crane}
+
+\setbeamertemplate{footline}[frame number]
+
+\title[Crisis]
+{Plasty versus lidstvo}
+
+\subtitle{BrNOC 2. 10. 2026}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=45mm]{img/Plastic_objects.jpg}}
+\date{}
+
+\begin{document}
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\section{Osnova}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.45\textwidth}
+			\begin{enumerate}
+				\item Doba plastová
+				\item Co vlastně jsou plasty?
+				\item Kam plasty mizí po použití?
+				\item Mikroplasty
+				\item PFAS
+				\item Zdravotní dopady
+				\item Budoucnost
+			\end{enumerate}
+		\end{column}
+
+		\begin{column}{.65\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Plastic_waste.jpg}
+				\caption*{Plastový odpad.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Plastic_waste_20231006_175234.jpg}{Ka23 13/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\end{document}

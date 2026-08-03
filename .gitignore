@@ -1,1 +1,8 @@
 /__Init
+*.log
+*.aux
+*.nav
+*.out
+*.snm
+*.gz
+*.toc
