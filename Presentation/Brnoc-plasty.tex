@@ -1,29 +1,21 @@
-\documentclass[hyperref=unicode, presentation,10pt]{beamer}
+\documentclass[hyperref=unicode]{beamer}
 
 \usepackage[absolute,overlay]{textpos}
-\usepackage{array}
 \usepackage{graphicx}
 \usepackage{adjustbox}
-\usepackage{mhchem}
 \usepackage{chemfig}
+\usepackage[version=4]{mhchem}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\adjustboxset*{center}
 \usepackage{caption}
+\usepackage{chemformula}
+\usepackage{elements}
 
 %dělení slov
 \usepackage{ragged2e}
 \let\raggedright=\RaggedRight
 %konec dělení slov
-
-\addtobeamertemplate{frametitle}{
-	\let\insertframetitle\insertsectionhead}{}
-\addtobeamertemplate{frametitle}{
-	\let\insertframesubtitle\insertsubsectionhead}{}
-
-\makeatletter
-\CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-\renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-\makeatother
-\setbeamercolor{section in toc}{fg=red}
-\setbeamertemplate{section in toc shaded}[default][100]
 
 \usepackage{fontspec}
 \usepackage{unicode-math}
@@ -33,16 +25,95 @@
 
 \def\uv#1{„#1“}
 
-\mode<presentation>{\usetheme{default}}
-\usecolortheme{crane}
+\usetheme[numbering=fraction]{metropolis}
+%\mode<presentation>{\usetheme{Madrid}}
+%\DefineNamedColor{named}{pozadi}{RGB}{200,200,200}
+%\usecolortheme{crane}
 
-\setbeamertemplate{footline}[frame number]
+%------------------------------------------------
+% Fonty (LuaLaTeX nebo XeLaTeX) %------------------------------------------------
+\usepackage{fontspec}
+\setmainfont{Source Sans Pro}
+\setsansfont{Source Sans Pro}
+\setmonofont{JetBrains Mono}
+
+%------------------------------------------------
+% Grafika
+%------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{ positioning, arrows.meta, calc, shapes.geometric }
+
+%------------------------------------------------
+% Barvy
+%------------------------------------------------
+\definecolor{MUblue}{HTML}{00467F}
+\definecolor{MUlight}{HTML}{EAF2F8}
+\definecolor{MUgreen}{HTML}{008A5E}
+\setbeamercolor{frametitle}{fg=MUblue}
+\setbeamercolor{title}{fg=MUblue}
+\setbeamercolor{block title}{ fg=white, bg=MUlight }
+\setbeamercolor{block body}{ bg=MUblue }
+\setbeamercolor{alerted text}{ fg=MUgreen }
+
+%------------------------------------------------
+% Metropolis nastavení
+%------------------------------------------------
+
+\metroset{ progressbar=frametitle, sectionpage=progressbar, block=fill }
+
+%------------------------------------------------
+% Vzhled seznamů
+%------------------------------------------------
+\setbeamertemplate{itemize item}{\small$\blacktriangleright$} \setbeamertemplate{itemize subitem}{\tiny$\blacktriangleright$}
+
+%------------------------------------------------
+% Číslování obrázků a tabulek %------------------------------------------------
+
+\setbeamertemplate{caption}[numbered]
+
+% --------------------------------------------------
+% Bez navigačních ikon
+% --------------------------------------------------
+
+\setbeamertemplate{navigation symbols}{}
+
+% --------------------------------------------------
+% Horní lišta se sekcí
+% --------------------------------------------------
+
+\setbeamercolor{section in head/foot}{ fg=white, bg=MUgreen } \setbeamertemplate{headline}
+{ \leavevmode
+	\hbox{ \begin{beamercolorbox}[ wd=\paperwidth, ht=2.8ex, dp=1.2ex, leftskip=1em ]{section in head/foot}
+			\insertsectionhead
+
+			\ifx\insertsubsectionhead\empty \else \insertsectionhead\hspace{1em}$\triangleright$\hspace{0.5em} \insertsubsectionhead \fi
+
+		\end{beamercolorbox}
+	}
+}
+
+% --------------------------------------------------
+% Dolní lišta s číslováním
+% --------------------------------------------------
+
+\setbeamercolor{author in head/foot}{ fg=white, bg=MUgreen } \setbeamertemplate{footline}
+{
+	\leavevmode
+	\hbox{
+		\begin{beamercolorbox}[ wd=\paperwidth, ht=2.8ex, dp=1.2ex, rightskip=1em ]{author in head/foot}
+			\hfill
+			\insertframenumber/\inserttotalframenumber \end{beamercolorbox}
+	}
+}
 
 \title[Crisis]
 {Plasty versus lidstvo}
 
-\subtitle{BrNOC 2. 10. 2026}
-\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=45mm]{img/Plastic_objects.jpg}}
+\subtitle{BR14OC 2. 10. 2026}
+\author{Zdeněk Moravec, hugo@chemi.muni.cz \\ \adjincludegraphics[height=.5\textheight]{img/BrNOC-2026-Moravec.jpg}}
 \date{}
 
 \begin{document}
@@ -50,30 +121,110 @@
 	\titlepage
 \end{frame}
 
-\section{Osnova}
+\section{Doba plastová}
 \frame{
 	\frametitle{}
 	\vfill
 	\begin{columns}
-		\begin{column}{.45\textwidth}
+		\begin{column}{.65\textwidth}
 			\begin{enumerate}
-				\item Doba plastová
-				\item Co vlastně jsou plasty?
-				\item Kam plasty mizí po použití?
-				\item Mikroplasty
-				\item PFAS
-				\item Zdravotní dopady
-				\item Budoucnost
+				\item Co jsou to plasty, mikroplasty, nanoplasty?
+				\item Z čeho se plasty vyrábí?
+				\item Kolik plastových výrobků máte teď u sebe?
+				\item Kolik těchto výrobků je určeno pro jedno použití?
+				\item Jaký podíl z těchto předmětů skončí v recyklačních kontejnerech?
+				\item Jaký podíl plastů je skutečně recyklován?
+				\item Co jsou to PFAS?
 			\end{enumerate}
 		\end{column}
 
-		\begin{column}{.65\textwidth}
+		\begin{column}{.45\textwidth}
 			\begin{figure}
-				\adjincludegraphics[width=\textwidth]{img/Plastic_waste.jpg}
-				\caption*{Plastový odpad.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Plastic_waste_20231006_175234.jpg}{Ka23 13/Commons}}}
+				\adjincludegraphics[width=\textwidth]{img/Plastic_objects.jpg}
+				\caption*{Výrobky z plastu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Plastic_objects.jpg}{Cjp24/Commons}}}
 			\end{figure}
 		\end{column}
 	\end{columns}
+	\vfill
+}
+
+\subsection{Plasty a chemie}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tikzpicture}[
+		>=Stealth,
+		node distance=0.8cm,
+		block/.style={
+			rectangle,
+			rounded corners,
+			draw=blue!60,
+			fill=blue!10,
+			thick,
+			minimum width=3.2cm,
+			minimum height=1cm,
+			align=center },
+			recycle/.style={
+				rectangle,
+				rounded corners,
+				draw=green!60!black,
+				fill=green!10,
+				thick,
+				minimum width=3.2cm,
+				minimum height=1cm,
+				align=center }
+				]
+
+				\node[block] (feedstock)
+				{Ropa a zemní plyn};
+
+				\node[block,below=of feedstock] (cracking)
+				{Rafinace\\a krakování};
+
+				\node[block,below=of cracking] (monomers)
+				{Monomery\\(ethylen, propylen)};
+
+				\node[block,below=of monomers] (polymer)
+				{Polymerace};
+
+				\node[block,right=of polymer] (plastics)
+				{Plasty\\(PE, PP, PVC, PET)};
+
+				\node[block,above=of plastics] (products)
+				{Výrobky};
+
+				\node[block,above=1.8cm of products,
+				draw=black,
+				fill=black!120,
+				text=white] (waste)
+				{Odpad};
+
+				\node[recycle,right=of waste] (recycling)
+				{Recyklace};
+
+				\draw[->,thick] (feedstock) -- (cracking);
+				\draw[->,thick] (cracking) -- (monomers);
+				\draw[->,thick] (monomers) -- (polymer);
+				\draw[->,thick] (polymer) -- (plastics);
+				\draw[->,thick] (plastics) -- (products);
+				\draw[->,thick] (products) -- (waste);
+				\draw[->,thick] (waste) -- (recycling);
+				\draw[->,thick,green!60!black] (recycling)
+				|- node[pos=0.25,left]
+				{recyklát} (plastics.east);
+				\end{tikzpicture}
+	\vfill
+}
+
+
+\subsection{Plasty v číslech}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.9\textwidth]{img/Plasty-vyroba.png}
+		\caption*{Objem celosvětové roční výroby plastů v letech 1950--2019.\footnote[frame]{Zdroj: \href{https://ourworldindata.org/grapher/global-plastics-production?time=1950..2019}{Our World in Data}}}
+	\end{figure}
 	\vfill
 }
 
