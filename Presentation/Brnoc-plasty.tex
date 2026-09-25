@@ -12,6 +12,9 @@
 \usepackage{chemformula}
 \usepackage{elements}
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
 %dělení slov
 \usepackage{ragged2e}
 \let\raggedright=\RaggedRight
@@ -148,7 +151,7 @@
 	\vfill
 }
 
-\subsection{Plasty a chemie}
+\section{Plasty a chemie}
 \frame{
 	\frametitle{}
 	\vfill
@@ -193,11 +196,24 @@
 				\node[block,above=of plastics] (products)
 				{Výrobky};
 
-				\node[block,above=1.8cm of products,
+				\node[block,above=of products,
 				draw=black,
 				fill=black!120,
 				text=white] (waste)
 				{Odpad};
+
+				\node[block,above=of waste,
+				draw=black,
+				fill=black!120,
+				text=white] (garbage)
+				{Skládka};
+
+				\node[block,right=of garbage,
+				draw=black,
+				fill=black!120,
+				text=white] (incinerator)
+				{Spalovna};
+
 
 				\node[recycle,right=of waste] (recycling)
 				{Recyklace};
@@ -209,6 +225,8 @@
 				\draw[->,thick] (plastics) -- (products);
 				\draw[->,thick] (products) -- (waste);
 				\draw[->,thick] (waste) -- (recycling);
+				\draw[->,thick] (waste) -- (garbage);
+				\draw[->,thick] (garbage) -- (incinerator);
 				\draw[->,thick,green!60!black] (recycling)
 				|- node[pos=0.25,left]
 				{recyklát} (plastics.east);
@@ -216,8 +234,17 @@
 	\vfill
 }
 
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=1.1\textwidth]{img/Plasty.png}
+		\caption*{Nejpoužívanější plasty}
+	\end{figure}
+	\vfill
+}
 
-\subsection{Plasty v číslech}
+\section{Plasty v číslech}
 \frame{
 	\frametitle{}
 	\vfill
@@ -225,6 +252,69 @@
 		\adjincludegraphics[width=.9\textwidth]{img/Plasty-vyroba.png}
 		\caption*{Objem celosvětové roční výroby plastů v letech 1950--2019.\footnote[frame]{Zdroj: \href{https://ourworldindata.org/grapher/global-plastics-production?time=1950..2019}{Our World in Data}}}
 	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{tikzpicture}
+	\begin{axis}[
+		xlabel=Rok,
+		ylabel=Výroba plastů (Mt/rok),
+		ymin=0,
+		ymax=500,
+		xticklabel style={
+			/pgf/number format/1000 sep={}
+		} ,
+		]
+
+		\addplot[blue,thick,mark=*]
+		coordinates {
+			(1950,2)
+			(1960,8)
+			(1970,35)
+			(1980,60)
+			(1990,100)
+			(2000,200)
+			(2010,313)
+			(2019,460)
+			};
+		\end{axis}
+
+		\begin{axis}[
+			axis y line*=right,
+			axis x line=none,
+			ylabel=Kumulativní plastový odpad (Gt),
+			ymin=0,
+			ymax=8,
+			legend style={
+				at={(0.5,-0.25)},
+				anchor=north,
+				legend columns=2,
+				fill=none,
+				draw=none
+			}
+			]
+
+			\addplot[red,thick,mark=square*]
+			coordinates
+			{
+				(1950,0.0)
+				(1960,0.02)
+				(1970,0.15)
+				(1980,0.45)
+				(1990,1.0)
+				(2000,2.2)
+				(2010,4.5)
+				(2015,6.3)
+				(2019,7.0)
+			};
+
+			\addlegendimage{blue,thick,mark=*}
+			\addlegendentry{Roční výroba plastů} \addlegendimage{red,thick,mark=square*} \addlegendentry{Kumulativní plastový odpad}
+		\end{axis}
+	\end{tikzpicture}
 	\vfill
 }
 
