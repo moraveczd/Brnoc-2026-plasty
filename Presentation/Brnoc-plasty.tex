@@ -382,7 +382,158 @@
 	\vfill
 }
 
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item Bohužel, většina plastového odpadu neskončí ve spalovně nebo recyklačním zařízení.
+		\item Podle statistik bylo v roce 2018:\footnote[frame]{\href{https://css.umich.edu/publications/factsheets/material-resources/plastic-waste-factsheet}{Plastic Waste Factsheet}}
+		\begin{itemize}
+			\item spáleno 16~\% odpadu
+			\item recyklováno jen 9~\% odpadu
+			\item zbytek, tzn. 76~\%, plastového odpadu skončí na skládkách nebo ve volné přírodě
+		\end{itemize}
+		\item Šance na recyklaci se zvyšuje vyhozením plastů do žlutého kontejneru.
+		\item V Brně bylo v roce 2023 sebráno asi 3777 tun plastového odpadu.
+		\begin{itemize}
+			\item recyklováno bylo 68~\%, tj. asi 2568 tun odpadu
+			\item spáleno bylo 32~\%, tj. asi 1209 tun odpadu
+		\end{itemize}
+	\end{itemize}
+	\vfill
+}
+
 \section{Recyklace plastů}
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Životní cesta PET láhve:}
+
+	\centering
+
+	\begin{tikzpicture}[
+		>=latex,
+		node distance=0.65cm,
+		process/.style={
+			draw,
+			rounded corners,
+			fill=blue!10,
+			minimum width=2.2cm,
+			minimum height=1cm,
+			align=center,
+			font=\small
+			},
+			arrow/.style={ ->, thick, blue!70 }
+			]
+
+			\node[process] (a) {PET láhev};
+			\node[process,right=of a] (b) {Žlutý\\kontejner};
+			\node[process,right=of b] (c) {Svoz\\odpadu};
+			\node[process,right=of c] (d) {Třídicí\\linka};
+			\node[process,below=0.8cm of d] (e) {Drcení\\a praní};
+			\node[process,left=of e] (f) {PET\\vločky};
+			\node[process,left=of f] (g) {PET\\granulát};
+			\node[process,left=of g,fill=green!15] (h) {Nové výrobky};
+
+			\draw[arrow] (a) -- (b);
+			\draw[arrow] (b) -- (c);
+			\draw[arrow] (c) -- (d);
+			\draw[arrow] (d) -- (e);
+			\draw[arrow] (e) -- (f);
+			\draw[arrow] (f) -- (g);
+			\draw[arrow] (g) -- (h);
+		\end{tikzpicture}
+
+		\begin{block}{Co může vzniknout z recyklovaného PET?}
+			Nové lahve, textilní vlákna (fleece), fólie, pásky nebo technické díly.
+		\end{block}
+
+		\textbf{Tímto postupem nelze plasty recyklovat donekonečna, protože dochází k jejich postupné degradaci.}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Schéma automatické třídící linky:}
+
+	\centering
+
+	\begin{tikzpicture}[
+		node distance=0.8cm,
+		box/.style={
+			draw,
+			rounded corners,
+			fill=blue!10,
+			minimum width=2.0cm,
+			minimum height=1cm,
+			align=center
+			} ]
+
+			\node[box] (a) {Žlutý\\kontejner};
+			\node[box,right=of a] (b) {Dopravník};
+			\node[box,right=of b] (c) {Optické\\senzory};
+			\node[box,right=of c] (d) {Vzduchové\\trysky};
+			\node[box,below left=0.5cm and 0.05cm of d,fill=green!15] (e) {PET};
+			\node[box,below=0.5cm of d,fill=yellow!20] (f) {PE/PP};
+			\node[box,above=0.5cm of d,fill=red!15] (g) {Směsný\\zbytek};
+
+			\draw[->,thick] (a) -- (b);
+			\draw[->,thick] (b) -- (c);
+			\draw[->,thick] (c) -- (d);
+			\draw[->,thick,green!60!black] (d) -- (e);
+			\draw[->,thick,orange!80!black] (d) -- (f);
+			\draw[->,thick,red!70!black] (d) -- (g);
+			\end{tikzpicture}
+
+			\vspace{0.2cm}
+
+			\begin{itemize}
+				\item Kamery a infračervené senzory rozpoznají typ plastu.
+				\item Počítač rozhodne, kam má předmět putovat.
+				\item Vzduchová tryska jej odfoukne do správného zásobníku.
+				\item Čisté proudy materiálu mohou pokračovat k recyklaci.
+			\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=.95\textwidth]{img/Municipal_recycling_facilities.jpg}
+		\caption*{Manuální řídící linka v recyklačním závodě.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Municipal_recycling_facilities,_Montgomery_County,_MD._2007,_Credit_USEPA_(14410405277).jpg}{USEPA/Commons}}}
+	\end{figure}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\textbf{Chemická recyklace plastů}
+	\begin{itemize}
+		\item Plasty se rozkládají na monomery nebo jiné látky, které lze využít v chemickém průmyslu.
+		\item Tento proces je poměrně složitý a vyžaduje:
+		\begin{itemize}
+			\item působení vysokých teplot (\textit{pyrolýza})
+			\item solvolýza, nejčastěji hydrolýza, tzn. rozklad vodou
+			\item využití vhodných katalyzátorů
+		\end{itemize}
+		\item Chemickou recyklaci lze teoreticky provádět donekonečna, nedochází k degradaci materiálu, ale lze ji aplikovat jen na určité druhy plastů.
+	\end{itemize}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[width=1.1\textwidth]{img/PET-hydrolysis.png}
+		\caption*{Alkalická hydrolýza PET\footnote[frame]{\href{https://doi.org/10.1002/pen.26406}{A focused review on recycling and hydrolysis techniques of polyethylene terephthalate}}}
+	\end{figure}
+	\vfill
+}
+
 
 \section{Mikroplasty}
 
