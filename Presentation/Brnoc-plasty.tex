@@ -23,6 +23,12 @@
 \usepackage{fontspec}
 \usepackage{unicode-math}
 
+\usepackage{xcolor}
+
+\newcommand\reditem[1]{%
+	\colitem{red}{#1}
+}
+
 \usepackage{polyglossia}
 \setdefaultlanguage{czech}
 
@@ -148,6 +154,26 @@
 			\end{figure}
 		\end{column}
 	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{itemize}
+		\item \textbf{1839} – Charles Goodyear objevuje vulkanizaci kaučuku.
+		\item \textbf{1862} – Alexander Parkes představuje \emph{Parkesine}, první komerčně vyráběný plast.
+		\item \textbf{1869} – Vzniká \emph{celuloid}, náhrada slonoviny a želvoviny.
+		\item \textbf{1907} – Leo Baekeland -- \emph{bakelit}, první plně syntetický plast.
+		\item \textbf{1933} – V laboratořích ICI je objeven \emph{polyethylen (PE)}.
+		\item \textbf{1935} – Wallace Carothers vyvíjí \emph{nylon}, první významné syntetické vlákno.
+		\item \textbf{1938} – Objev \emph{PTFE (teflonu)}.
+		\item \textbf{1954} – Giulio Natta -- \emph{polypropylen (PP)}.
+		\item \textbf{1973} – Patentována první \emph{PET láhev}.
+		\item \alert{\textbf{1988} – Zavedení identifikačních kódů plastů.}
+		\item \alert{\textbf{1990–2000} – Rozvoj průmyslové mechanické recyklace plastů.}
+		\item \alert{\textbf{2010–současnost} – Chemická recyklace, pyrolýza a cirkulární ekonomika.}
+	\end{itemize}
 	\vfill
 }
 
@@ -536,6 +562,66 @@
 
 
 \section{Mikroplasty}
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Kousky plastů o velikosti \mbox{5 mm -- 1000 (100) nm}.
+				\item \textbf{Nanoplasty} -- kousky plastů menší než 1 $\mu$m.
+				\item Nanoplasty mají větší poměr povrchu vůči objemu než mikroplasty. Větší povrch způsobuje vyšší reaktivitu, což se může projevit i ve větší míře zdravotních rizik.\footnote[frame]{\href{https://medicalxpress.com/news/2026-04-microplastics-human-brain-sample-healthy.html}{Microplastics turn up in nearly every human brain sample, including healthy tissue}}
+			\end{itemize}
+		\end{column}
+
+		\begin{column}{.45\textwidth}
+			\begin{figure}
+				\adjincludegraphics[width=\textwidth]{img/Microplastic.jpg}
+				\caption*{Snímek mikroplastů nalezených v oceánu.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Microplastic.jpg}{Oregon State University/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{columns}
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item \textit{Primární mikroplasty} -- přidávají se záměrně do kosmetiky, barev, \ldots
+			\end{itemize}
+
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/Mikroplastasarp.jpg}
+				\caption*{Snímek mikroplastů v zubní pastě.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:Mikroplastasarp.jpg}{Dantor/Commons}}}
+			\end{figure}
+		\end{column}
+
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item \textit{Sekundární mikroplasty} -- vznikají degradací plastových výrobků, např. pneumatik, obalů, \ldots
+			\end{itemize}
+
+			\begin{figure}
+				\adjincludegraphics[height=.5\textheight]{img/bottle.png}
+				\caption*{Degradace plastové láhve ve vodě.\footnote[frame]{Zdroj: \href{https://commons.wikimedia.org/wiki/File:The_breakdown_of_a_plastic_bottle_into_smaller_fragments,_eventually_ending_up_as_micro-_and_nano-plastics.png}{European Environmental Agency/Commons}}}
+			\end{figure}
+		\end{column}
+	\end{columns}
+	\vfill
+}
+
+\frame{
+	\frametitle{}
+	\vfill
+	\begin{figure}
+		\adjincludegraphics[height=.7\textheight]{img/Old_tires_1.jpg}
+		\caption*{Pneumatiky, jeden z hlavních zdrojů mikroplastů.\footnote[frame]{\href{https://commons.wikimedia.org/wiki/File:Old_tires_1.jpg}{kallerna/Commons}}}
+	\end{figure}
+	\vfill
+}
 
 \section{PFAS}
 
